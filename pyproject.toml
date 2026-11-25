@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "aircraft-tracker"
+version = "0.1.0"
+description = "Трекер самолётов: Nominatim + OpenSky Network"
+authors = ["student <daryakarchikova09@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+requests = "^2.34.2"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.1,<10.0.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+mypy_path = "src"
+explicit_package_bases = true
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "--import-mode=importlib"
